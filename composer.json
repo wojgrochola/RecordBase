@@ -1,0 +1,7 @@
+{
+    "require": {
+    	"hybridauth/hybridauth": "2.*",
+        "slim/slim": "2.*"
+        
+    }
+}
