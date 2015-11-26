@@ -34,14 +34,14 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li><a href="<?php echo $baseUri; ?>/index">Home</a></li>
-          <li class="active"><a href="<?php echo $baseUri; ?>/save">Add Record </a> </li>
+          <li><a href="<?php echo $baseUri; ?>/save">Add Record </a> </li>
           <li><a href="#">Search</a></li>
           <li><a href="#">Info</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
            <?php if (isset($_SESSION['uid'])){ ?> 
-              <li> <a href="<?php echo  $baseUri . '/userInfo'; ?>"> <span style="font-size:1.0em;" class="glyphicon glyphicon-user"> </span>  <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?> </a></li>
+              <li class="active"> <a href="<?php echo  $baseUri . '/userInfo'; ?>"> <span style="font-size:1.0em;" class="glyphicon glyphicon-user"> </span>  <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?> </a></li>
               <li><a href="<?php echo  $baseUri . '/logout'; ?>" ><span class="glyphicon glyphicon-log-out"></span>  Logout</a></li>
 
           <?php } else { ?>
@@ -52,52 +52,26 @@
     </div>
   </nav>
 
-    <div class="container" class="row">
+  <div class="container" class="row">
     <div  class="page-header" >
       <h1 >
-      <span style="color:green" style="font-size:0.7em;" class="glyphicon glyphicon-plus" >  </span> 
-       Dodaj nowe wydarzenie:
+      <span  style="font-size: 1.0em;" class="glyphicon glyphicon-user" >  </span> 
+       Profil użytkownika:
         </h1>
       </div>
-    <div class="col-sm-3">
+    <div class="col-sm-4">
     </div>
-    <div  class="col-sm-6" >
-      <div  class="well">
-              <form  class="form-horizontal"  method="post" action="<?php echo $baseUri; ?>/save">
-                <input name="id" type="hidden" value="<?php echo $this->data['events']['id']; ?>" />
+    <div  class="col-sm-4" >
 
-                <div class="form-group">
-                  <label for="date" class="col-sm-2 control-label">Data:</label>
-                  <div class="col-sm-8">
-                    <input name="date" type="date" class="form-control" id="date" placeholder="Choose date" required>
-                  </div>
-                </div>
+      <div class="well" >
+        <div class="text-center">
+        <img src="<?php echo $_SESSION['photoURL']; ?>" class="img-circle" alt="User Photo" width="150" height="150"> 
+        <h3> <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?> </h3>
+        </div>
+        <hr class="divider">
+        <p>  <span class="glyphicon glyphicon-envelope">  </span><?php echo '     ' . $_SESSION['uid']; ?> </p>
+        <p>  <span class="glyphicon glyphicon-asterisk"></span> <?php echo '      ' .$_SESSION['gender']; ?> </p>
 
-                <div class="form-group">
-                  <label for="place" class="col-sm-2 control-label">Miejsce:</label>
-                  <div class="col-sm-8">
-                    <input  name="place" type="text" class="form-control" id="place" placeholder="Wpisz miejsce imprezy" required>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="title" class="col-sm-2 control-label">Tytuł:</label>
-                  <div class="col-sm-8">
-                    <input name="title" type="text" class="form-control" id="title" placeholder="Wpisz nazwę imprezy" required>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="author" class="col-sm-2 control-label">Autor:</label>
-                  <div class="col-sm-8">
-                    <input name="author" type="text" class="form-control" id="author" placeholder="Autor wpisu" required>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                <label for="details" class="col-sm-2 control-label">Szczegóły:</label>
-                <div class="col-sm-8">
-                <textarea class="form-control" rows="4" id="comment"></textarea>
       </div> <!-- class well  -->
     </div>
 
@@ -106,22 +80,16 @@
 
                 
 
-                <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-success">Dodaj</button>
-                  </div>
-                </div>
-            </form>
-          </div>
+             
     </div>
-    </div> <!-- containert -->
-
+    
     <footer class="footer">
       <div class="container" class="row">
         <p class="text-muted">All right reserved - Wojciech Grochola</p>
       </div>
       </div>
   </footer>
+   
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

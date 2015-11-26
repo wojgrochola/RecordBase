@@ -95,8 +95,11 @@ $app->get('/delete/:id', 'authenticate', function ($id) use($app){
 });
 
 
+$app->get('/userInfo', function () use ($app, $auth) {
+  $app->render('userInfo.tpl.php');
+})->name('userInfo');
+
 $app->get('/login', function () use ($app, $auth) {
-  echo "JU MAS BI LOGIN";
   $app->render('login.tpl.php');
 })->name('login');
 
@@ -105,6 +108,14 @@ $app->get('/login2', function () use ($app, $auth) {
   $google = $auth->authenticate("Google");
   $currentUser = $google->getUserProfile();
   $_SESSION['uid'] = $currentUser->email;
+  $_SESSION['firstName'] = $currentUser->firstName; 
+  $_SESSION['lastName'] = $currentUser->lastName;
+  $_SESSION['photoURL'] = $currentUser->photoURL;
+  $_SESSION['phone'] = $currentUser->phone;
+  $_SESSION['gender'] = $currentUser->gender;
+  $_SESSION['birthYear'] = $currentUser->birthDay;
+  $_SESSION['city'] = $currentUser->city;
+
   $app->redirect($app->urlFor('index'));
 
 })->name('login2');
@@ -113,7 +124,8 @@ $app->get('/login2', function () use ($app, $auth) {
 $app->get('/logout', 'authenticate', function () use ($app, $auth) {
   $auth->logoutAllProviders();
   session_destroy();
-  $app->render('logout.tpl.php');
+  // $app->render('logout.tpl.php');
+  $app->redirect($app->urlFor('index'));
 });
 // OAuth callback handler
 $app->get('/callback', function () {

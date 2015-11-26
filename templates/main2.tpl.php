@@ -8,8 +8,8 @@
     <title>Bootstrap 101 Template</title>
 
     <!-- Bootstrap -->
-    <link href="public/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="public/css/sticky-footer.css">
+    <!-- <link href="public/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
@@ -33,52 +33,25 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li><a href="<?php echo $baseUri; ?>/index">Home</a></li>
-          <li><a href="<?php echo $baseUri; ?>/save">Add Record </a> </li>
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Add Record </a> </li>
           <li><a href="#">Search</a></li>
           <li><a href="#">Info</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
-           <?php if (isset($_SESSION['uid'])){ ?> 
-              <li class="active"> <a href="<?php echo  $baseUri . '/userInfo'; ?>"> <span style="font-size:1.0em;" class="glyphicon glyphicon-user"> </span>  <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?> </a></li>
-              <li><a href="<?php echo  $baseUri . '/logout'; ?>" ><span class="glyphicon glyphicon-log-out"></span>  Logout</a></li>
-
-          <?php } else { ?>
-              <li><a href="<?php echo  $baseUri . '/login2'; ?>" ><span class="glyphicon glyphicon-log-in"></span>  Login via Google</a></li>
-          <?php } ?>
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>  Login via Google</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <div class="container" class="row">
-    <div  class="page-header" >
-      <h1 >
-      <span  style="font-size: 1.0em;" class="glyphicon glyphicon-info-sign" >  </span> 
-       Dostęp wymaga autoryzacji!
-        </h1>
-      </div>
-      <div class="alert alert-danger">
-          <strong>Nie jesteś zalogowany!</strong> Aby w pełni korzystać z serwisu, <a href="<?php echo  $baseUri . '/login2'; ?>" ><span class="glyphicon glyphicon-log-in"></span> zaloguj się </a> przy życiu Twojego konta Google.
-      </div>
-    
-
-
-                
-
-                
-
-             
+    <div class="container">
+      <h1>Hello, world!</h1>
+      <h1>My First Bootstrap Page</h1>
+      <p>This part is inside a .container class.</p> 
+      <p>The .container class provides a responsive fixed width container.</p>           
     </div>
-    
-    <footer class="footer">
-      <div class="container" class="row">
-        <p class="text-muted">All right reserved - Wojciech Grochola</p>
-      </div>
-      </div>
-  </footer>
-   
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
